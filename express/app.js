@@ -4,9 +4,20 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', (req, res) => res.send('Response pasha server'))
+const getRootPasha = (req, res) => {
+    res.send('Response from Pasha')
+}
+
+const getCommentsPasha = (req, res) => {
+    res.send('get comments Pasha')
+}
+const postCommentsPasha = (req, res) => {
+    res.send('post pasha route')
+}
+
+app.get('/', getRootPasha)
+app.get('/comments', getCommentsPasha)
+app.post('/comments', postCommentsPasha)
 
 
-const server = http.createServer(app)
-
-server.listen(3000, () => console.log('pasha done'))
+app.listen(3000, () => console.log('Pasha done'))
